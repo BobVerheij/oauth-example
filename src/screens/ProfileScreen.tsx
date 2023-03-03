@@ -33,8 +33,17 @@ export const ProfileScreen = () => {
 
   return (
     <ScreenLayout>
-      {user ? <ProfileCard user={user} /> : null}
-      {!user ? <Button label="Back to Log In" href="/" /> : null}
+      {user ? (
+        <>
+          <ProfileCard user={user} />
+          <Button
+            label="Sign out"
+            onClick={() => cookies.remove("hum-example-google-oauth")}
+            href="/"
+          />
+        </>
+      ) : null}
+      {!user ? <Button label="Back to Sign In" href="/" /> : null}
     </ScreenLayout>
   );
 };

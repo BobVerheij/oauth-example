@@ -11,33 +11,44 @@ const Wrapper = styled.div`
   column-gap: 1rem;
   display: grid;
   font-family: "Courier New", Courier, monospace;
-  grid-template-columns: 4rem auto;
+  grid-template-columns: auto 1fr;
   padding: 1rem;
+  margin-bottom: auto;
 `;
 
 const Image = styled.img`
-  width: 50px;
-  height: 50px;
+  align-self: center;
+  width: 5rem;
+  height: 5rem;
   border-radius: 0.5rem;
 `;
 
-const InfoWrapper = styled.div``;
+const InfoWrapper = styled.div`
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  gap: 0.25rem;
+`;
 
-const Name = styled.h3``;
-const Email = styled.h4``;
-const Locale = styled.h4``;
+const Name = styled.h3`
+  margin: 0;
+  padding: 0;
+`;
+const Email = styled.h4`
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+`;
+const Locale = styled.h4`
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+`;
 
 export const ProfileCard = ({ user }: IProfileCard) => {
   return (
     <Wrapper>
-      <Image
-        width={50}
-        height={50}
-        style={{ borderRadius: "0.5rem" }}
-        src={user?.picture}
-        alt="user"
-        referrerPolicy="no-referrer"
-      />
+      <Image src={user?.picture} alt="user" referrerPolicy="no-referrer" />
       <InfoWrapper>
         <Name>{user.name}</Name>
         <Email>{user.email}</Email>
